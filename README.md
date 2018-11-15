@@ -1,4 +1,3 @@
-Readme text goes here
+## Scenic test snake game
 
-
-From template
+See https://blog.usejournal.com/elixir-scenic-snake-game-b8616b1d7ee0
