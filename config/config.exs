@@ -6,7 +6,7 @@ use Mix.Config
 config :elixir_snake, :viewport, %{
   name: :main_viewport,
   size: {700, 600},
-  default_scene: {ElixirSnake.Scene.Home, nil},
+  default_scene: {ElixirSnake.Scene.Game, nil},
   drivers: [
     %{
       module: Scenic.Driver.Glfw,
@@ -15,7 +15,6 @@ config :elixir_snake, :viewport, %{
     }
   ]
 }
-
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
 # by uncommenting the line below and defining dev.exs, test.exs and such.
