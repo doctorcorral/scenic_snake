@@ -98,4 +98,27 @@ defmodule ElixirSnake.Scene.Game do
   defp move(%{tile_width: w, tile_height: h}, {pos_x, pos_y}, {vec_x, vec_y}) do
     {rem(pos_x + vec_x + w, w), rem(pos_y + vec_y + h, h)}
   end
+
+  def handle_input({:key, {"left", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {-1, 0})}
+  end
+
+  def handle_input({:key, {"right", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {1, 0})}
+  end
+
+  def handle_input({:key, {"up", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {0, -1})}
+  end
+
+  def handle_input({:key, {"down", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {0, 1})}
+  end
+
+  def handle_input(_input, _context, state), do: {:noreply, state}
+
+  # Change the snake's current direction.
+  defp update_snake_direction(state, direction) do
+    put_in(state, [:objects, :snake, :direction], direction)
+  end
 end
